@@ -1,0 +1,141 @@
+atom-text-editor {
+    background: rgba(255,255,255,0.45);
+    box-shadow:
+        inset 0px 0px 200px rgba(0,50,150,0.5);
+}
+
+atom-text-editor::before {
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    box-shadow:
+        inset 0 0 300px black;
+    opacity: 0.25;
+    mix-blend-mode:hard-light;
+}
+
+atom-text-editor::after {
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @base-background-color;
+    box-shadow:
+        inset 0 0 500px @text-color-selected;
+    opacity: 0.5;
+    mix-blend-mode:color-burn;
+}
+
+atom-text-editor .gutter {
+    background: none;
+    .line-number {
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+    }
+}
+
+// atom-text-editor-minimap {
+//     background:
+//         linear-gradient(white 85%, rgba(0,0,0,0.025));
+//     background-size: 100% 0.25em;
+//     box-shadow: inset 0 0 150px rgba(0,0,0,0.1);
+//     border-left: 1px dashed rgba(0,0,0,0.25);
+// }
+
+atom-text-editor-minimap .minimap-visible-area::after {
+    background: none !important;
+    border-top: 1px solid darkgrey;
+    border-bottom: 1px solid darkgrey;
+    box-shadow:
+        0 0 10px rgba(0,0,0,0.25),
+        inset 0 0 50px rgba(0,0,0,0.35);
+}
+
+atom-text-editor * {
+    font-style: italic;
+}
+
+atom-text-editor .selection .region,
+atom-text-editor.is-focused .selection .region {
+    background: @background-color-selected;
+    border-radius: 5px;
+    box-shadow: 0 0 20px @background-color-selected;
+    text-shadow: none;
+}
+
+atom-text-editor .highlights,
+atom-text-editor .highlights.find-result .region {
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+// atom-text-editor .gutter .line-number.cursor-line {
+//     filter: contrast(80%) brightness(130%);
+// }
+
+.syntax--comment {
+    opacity: 0.75;
+}
+
+atom-text-editor .line {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+body.fullscreen .tab-bar { height: 0px; visibility: hidden; }
+body.fullscreen .footer { display: none !important; }
+
+atom-text-editor ::-webkit-scrollbar {
+    display: none;
+}
+
+// Editor in a panel
+
+// TODO: Find a better selector, maybe a new class like atom-text-editor[medium]
+atom-panel-container atom-text-editor.is-focused {
+  .focus();
+}
+
+// Mini
+// Usually just single line inputs
+
+atom-text-editor[mini] {
+  overflow: auto;
+  font-size: @ui-input-size;
+  line-height: @ui-line-height;
+  max-height: @ui-line-height * 5; // rows
+  padding-left: @ui-padding/3;
+  border-radius: @component-border-radius;
+  color: @text-color-highlight;
+  border: 1px solid @input-border-color;
+  background-color: @input-background-color;
+
+  .placeholder-text {
+    color: @text-color-subtle;
+  }
+
+  .selection .region {
+    background-color: @input-selection-color;
+  }
+
+  .cursor {
+    border-color: @accent-color;
+    border-width: 2px;
+  }
+
+  &.is-focused {
+    .focus();
+    background-color: @input-background-color-focus;
+    .selection .region {
+      background-color: @input-selection-color-focus;
+    }
+  }
+}
