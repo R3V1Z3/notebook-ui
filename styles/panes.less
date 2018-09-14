@@ -1,17 +1,22 @@
-
 atom-pane-container {
 
   atom-pane {
     position: relative;
-    border-right: 1px solid @base-border-color;
-    border-bottom: 1px solid @base-border-color;
 
     .item-views {
       // prevent atom-text-editor from leaking ouside might improve performance
       overflow: hidden;
     }
   }
+}
 
+// settings pane
+atom-pane-container atom-pane .item-views .pane-item {
+    background: @ui-bg;
+    filter: hue-rotate(180deg);
+    .panels{
+        background: transparent;
+    }
 }
 
 // Hide right-most border

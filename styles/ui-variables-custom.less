@@ -22,13 +22,11 @@
 @ui-border: darken(@level-3-color, 6%);
 
 
-
-
 // Custom variables
 // These variables are only used in this theme
 // ----------------------------------------------
 
-@ui-theme-name: one-light-ui;
+@ui-theme-name: notebook-ui;
 
 // Text (Custom) -----------------
 @text-color-faded: fade(@text-color, 30%);
@@ -47,7 +45,6 @@
 
 @level-3-color-hover:  darken(@level-3-color, 6%);
 @level-3-color-active: darken(@level-3-color, 3%);
-
 
 // Accent (Custom) -----------------
 @accent-luma:             luma( hsl(@ui-hue, 50%, 50%) ); // get lightness of current hue
@@ -82,7 +79,7 @@
 @progress-background-color:         @accent-color;
 
 @scrollbar-color:                   darken(@level-3-color, 14%);
-@scrollbar-background-color:        @level-3-color; // replaced `transparent` with a solid color to test https://github.com/atom/one-light-ui/issues/4
+@scrollbar-background-color:        rgba(0,0,0,1);
 @scrollbar-color-editor:            contrast(@ui-syntax-color, darken(@ui-syntax-color, 14%), lighten(@ui-syntax-color, 9%) );
 @scrollbar-background-color-editor: @ui-syntax-color;
 
@@ -109,24 +106,10 @@
 @ui-line-height:          @ui-size*2;
 @ui-tab-height:           @ui-size*2.5;
 
-
-
-
-
 // Packages variables
 // These variables are used to override packages
 // ----------------------------------------------
-
 @settings-list-background-color: darken(@level-2-color, 3%);
 @theme-config-box-shadow: inset 0 1px 2px hsla(0, 0%, 0%, .2), 0 1px 0 hsla(0, 0%, 100%, .3);
 @theme-config-box-shadow-selected: inset 0 1px 3px hsla(0, 0%, 0%, .2);
 @theme-config-border-selected: hsla(0, 0%, 0%, .5);
-
-
-// Debug
-// Output variables to the top of the UI
-// -------------------------------------
-
-// html:before {
-//   content: "@{variable}";
-// }

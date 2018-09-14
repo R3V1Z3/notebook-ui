@@ -9,7 +9,8 @@
     "ui",
     "notebook",
     "notes",
-    "paper"
+    "paper",
+    "textures"
   ],
   "license": "MIT",
   "repository": "https://github.com/Ugotsta/notebook-ui",

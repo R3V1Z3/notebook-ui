@@ -1,35 +1,51 @@
-
 // Panels
+
+// box shadow overlay
+atom-panel.tool-panel:not(status-bar)::before,
+atom-pane-container atom-pane .item-views .pane-item::before,
+.github-Panel::before {
+        z-index: 1;
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.05);
+        box-shadow:
+            inset 0 0 10px black,
+            inset 0 0 300px rgba(0,0,0,0.5);
+        mix-blend-mode: hard-light;
+}
+
+// paper overlay
+atom-panel.tool-panel:not(status-bar)::after,
+atom-pane-container atom-pane .item-views .pane-item::after,
+.github-Panel::before {
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @syntax-background-color;
+    background-image: url(atom::/notebook-ui/assets/paper.jpg);
+    background-blend-mode: luminosity;
+    opacity: 0.95;
+    mix-blend-mode: color-burn;
+}
 
 atom-panel {
   .text(normal);
   position: relative;
-  border-bottom: 1px solid @base-border-color;
-
-  &.top {
-    border-right: 1px solid @base-border-color;
-  }
-  &.left {
-    border-right: 1px solid @base-border-color;
-  }
-  &.right {
-    border-left: 1px solid @base-border-color;
-  }
-  &.bottom {
-    border-right: 1px solid @base-border-color;
-  }
-  &.footer:last-child {
-    border-bottom: none;
-  }
-  &.tool-panel:empty {
-    border: none;
-  }
 }
 
 .panel {
   &.bordered {
-    border: 1px solid @base-border-color;
-    border-radius: @component-border-radius;
+    border: none;
   }
 }
 
@@ -38,17 +54,12 @@ atom-panel {
   background-color: @inset-panel-background-color;
   border-radius: @component-border-radius;
   &.bordered {
-    border: 1px solid @base-border-color;
-    border-radius: @component-border-radius;
-  }
-  & .panel-heading {
-    border-color: @inset-panel-border-color;
+    border: none;
   }
 }
 
 .panel-heading {
   .text(normal);
-  border-bottom: 1px solid @panel-heading-border-color;
   background-color: @panel-heading-background-color;
 
   .btn {
@@ -61,4 +72,47 @@ atom-panel {
       lighten(@text-color, 10%)
     );
   }
+}
+
+// paper overlays
+.tab-bar::after,
+status-bar::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background:
+        url('atom::/notebook-ui/assets/paper.jpg');
+    background-size: 300px;
+    pointer-events: none;
+    mix-blend-mode: color-burn;
+    box-shadow:
+        inset 0 0 10px black,
+        inset 0 0 50px rgba(0,0,0,0.25),
+        inset 0 0 100px rgba(0,0,0,0.75);
+}
+
+.tool-panel.tree-view {
+    background:
+        linear-gradient(to right,
+            rgba(255,255,255,0.05) 0%,
+            rgba(0,0,0,0.5) 50%),
+        url('atom::/notebook-ui/assets/paper.jpg');
+    mix-blend-mode: color-burn;
+    box-shadow:
+        inset 0 0 10px black,
+        inset 0 0 50px rgba(0,0,0,0.25),
+        inset 0 -50px 50px rgba(0,0,0,0.5),
+        inset 0 0 100px rgba(0,0,0,0.75);
+}
+
+.tool-panel.tree-view * {
+    filter:contrast(110%) brightness(80%);
+    font-weight: 900;
+}
+
+// add some light to the status bar so it's visible
+status-bar {
+    filter: brightness(1.8) contrast(110%);
 }

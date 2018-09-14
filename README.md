@@ -1,30 +1,20 @@
 # Notebook UI Theme for Atom
 
-Notebook themed UI based on Atom One Light.
+Atom wants to look like an old notebook. Let it.
 
-![One light UI](https://cloud.githubusercontent.com/assets/378023/26246819/0826f04e-3cd6-11e7-98eb-cd94bc48b090.png)
+Notebook UI styles most core elements to make Atom feel right at home in the early centuries. Or in a videogame based in early centuries. Either way, that's what Atom wants.
 
-> The font used in the screenshot is [Fira Code iScript](https://github.com/kencrocken/FiraCodeiScript).
+## Built on Atom One and Fira Code
 
-## Settings
+Notebook UI is based entirely on Atom One Light theme which excels at blending UI styles with syntax theme colors. Notebook UI's styles don't mesh quite so well with as many themes but it looks great with light or solarized syntax themes.
 
-In the theme settings you can:
+It also relies on [Fira Code iScript](https://github.com/kencrocken/FiraCodeiScript) for handwritten font styling.
 
-- Change the __Font Size__ to scale the whole UI up or down.
-- Choose between 3 __Tab Sizing__ modes.
-- Hide the  __dock buttons__.
+![Notebook UI](assets/notebook-ui-main.png)
+![Notebook UI Fullscreen](assets/notebook-ui-fullscreen.png)
+![Notebook UI Find-in-files](assets/notebook-ui-find-in-files.png)
 
-To make changes, go to `Settings > Themes > One Light UI > Settings` or the cog icon next to the theme picker.
-
-
-### Customize
-
-It's also possible to resize only certain areas by adding the following to your `styles.less` (Use DevTools to find the right selectors):
-
-```css
-.theme-one-light-ui {
-  .tab-bar { font-size: 18px; }
-  .tree-view { font-size: 14px; }
-  .status-bar { font-size: 12px; }
-}
-```
+KNOWN BUGS
+* No START or PLAY button.
+* Makes all text crooked, wat?
+* Playing Nethack in a terminal with this theme is impossibly slow.

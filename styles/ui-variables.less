@@ -1,14 +1,4 @@
-
 @import "ui-variables-custom.less"; // import colors and custom variables
-
-// ONE light UI variables
-// ----------------------------------------------
-
-// Official variables
-// These variables must be defined in every theme
-// Source: https://github.com/atom/atom/blob/master/static/variables/ui-variables.less
-// ----------------------------------------------
-
 
 // Text -----------------
 @text-color:            @ui-fg;
@@ -21,7 +11,6 @@
 @text-color-warning: hsl( 37,  90%, 44%);
 @text-color-error:   hsl(  0,  90%, 56%);
 
-
 // Background -----------------
 @background-color-info:    hsl(208, 100%, 56%);
 @background-color-success: hsl(132,  52%, 48%);
@@ -33,11 +22,9 @@
 
 @app-background-color: @level-3-color;
 
-
 // Base -----------------
 @base-background-color: @ui-bg;
-@base-border-color:     @ui-border;
-
+@base-border-color:     rgba(0,0,0,0.75);
 
 // Components -----------------
 @pane-item-background-color:       @base-background-color;
@@ -67,7 +54,7 @@
 @tab-bar-border-color:             @base-border-color;
 @tab-background-color:             @level-3-color;
 @tab-background-color-active:      @level-2-color;
-@tab-border-color:                 @base-border-color;
+@tab-border-color:                 transparent;
 
 @tree-view-background-color:       @level-3-color;
 @tree-view-border-color:           @base-border-color;
@@ -77,7 +64,6 @@
 @ui-site-color-3: hsl( 40,  60%, 52%); // orange
 @ui-site-color-4: #D831B0;             // pink
 @ui-site-color-5: #EBDD5B;             // yellow
-
 
 // Sizes -----------------
 @font-size:               12px;
@@ -92,6 +78,5 @@
 
 @tab-height:              30px;
 
-
 // Font -----------------
-@font-family: system-ui;
+@font-family: Fira Code iScript, system-ui;

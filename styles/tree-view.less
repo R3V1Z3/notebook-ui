@@ -17,6 +17,8 @@
   // Selected state
   .selected:before {
     background: @background-color-selected;
+    opacity: 0.25;
+    filter: invert();
   }
 
   // Focus + selected state
@@ -24,7 +26,7 @@
     .selected.list-item > .name, // files
     .selected.list-nested-item > .list-item > .name, // folders
     .selected.list-nested-item > .header:before { // arrow icon
-      color: contrast(@button-background-color-selected);
+      // color: contrast(@button-background-color-selected);
     }
     .selected:before {
       background: @button-background-color-selected;

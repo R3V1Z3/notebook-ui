@@ -1,56 +1,93 @@
+// italicize all Atom text
+atom-workspace * {
+    font-style: italic;
+}
+
+// background and line colors
 atom-text-editor {
-    background: rgba(255,255,255,0.45);
-    box-shadow:
-        inset 0px 0px 200px rgba(0,50,150,0.5);
-}
-
-atom-text-editor::before {
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: none;
-    box-shadow:
-        inset 0 0 300px black;
-    opacity: 0.25;
-    mix-blend-mode:hard-light;
-}
-
-atom-text-editor::after {
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: @base-background-color;
-    box-shadow:
-        inset 0 0 500px @text-color-selected;
-    opacity: 0.5;
-    mix-blend-mode:color-burn;
-}
-
-atom-text-editor .gutter {
-    background: none;
-    .line-number {
-        border-bottom: 1px solid rgba(0,0,0,0.15);
+    background: @ui-bg;
+    .line {
+        box-shadow:
+            inset 1px 1px 1px rgba(0,0,0,0.05);
+    }
+    .line:nth-child(even) {
+        box-shadow:
+            inset 1px 1px 1px rgba(0,0,0,0.05),
+            inset 0 0 2em rgba(0,0,0,0.025);
     }
 }
 
-// atom-text-editor-minimap {
-//     background:
-//         linear-gradient(white 85%, rgba(0,0,0,0.025));
-//     background-size: 100% 0.25em;
-//     box-shadow: inset 0 0 150px rgba(0,0,0,0.1);
-//     border-left: 1px dashed rgba(0,0,0,0.25);
-// }
+// cursor styling
+atom-text-editor.editor .cursors {
+    .cursor {
+        border: none;
+    }
+    .cursor::after {
+        content: "︳";
+        font-style: normal;
+        font-weight: 900;
+        text-shadow:
+            0 0 1px white,
+            1px 1px 1px white,
+            2px 2px 1px white,
+            3px 3px 4px black;
+    }
+}
 
+// logo overlay and strong shadow effect
+atom-text-editor:not(.mini)::before {
+        z-index: 1;
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.15);
+        background-image: url(atom::/notebook-ui/assets/logo.png);
+        background-blend-mode: normal;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        box-shadow:
+            inset 0 0 10px black,
+            inset 0 0 500px rgba(0,0,0,0.5);
+        mix-blend-mode: hard-light;
+}
+
+// paper overlay
+atom-text-editor:not(.mini)::after {
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @syntax-background-color;
+    background-image: url(atom::/notebook-ui/assets/paper.jpg);
+    background-blend-mode: luminosity;
+    background-size: 300px;
+    opacity: 0.95;
+    mix-blend-mode: color-burn;
+}
+
+atom-text-editor .gutter {
+    background: transparent;
+    .line-number {
+        box-shadow:
+            inset 1px 1px 1px rgba(0,0,0,0.05);
+    }
+    .line-number:nth-child(even) {
+        box-shadow:
+            inset 0 1px 1px rgba(0,0,0,0.15),
+            inset 0 0 2em rgba(0,0,0,0.05);
+    }
+}
+
+// minimap shadow overlay for visible area
 atom-text-editor-minimap .minimap-visible-area::after {
     background: none !important;
     border-top: 1px solid darkgrey;
@@ -60,14 +97,9 @@ atom-text-editor-minimap .minimap-visible-area::after {
         inset 0 0 50px rgba(0,0,0,0.35);
 }
 
-atom-text-editor * {
-    font-style: italic;
-}
-
 atom-text-editor .selection .region,
 atom-text-editor.is-focused .selection .region {
     background: @background-color-selected;
-    border-radius: 5px;
     box-shadow: 0 0 20px @background-color-selected;
     text-shadow: none;
 }
@@ -75,29 +107,12 @@ atom-text-editor.is-focused .selection .region {
 atom-text-editor .highlights,
 atom-text-editor .highlights.find-result .region {
     z-index: 1;
-    mix-blend-mode: multiply;
+    mix-blend-mode: color-burn;
 }
-
-// atom-text-editor .gutter .line-number.cursor-line {
-//     filter: contrast(80%) brightness(130%);
-// }
 
 .syntax--comment {
-    opacity: 0.75;
+    opacity: 0.5;
 }
-
-atom-text-editor .line {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-
-body.fullscreen .tab-bar { height: 0px; visibility: hidden; }
-body.fullscreen .footer { display: none !important; }
-
-atom-text-editor ::-webkit-scrollbar {
-    display: none;
-}
-
-// Editor in a panel
 
 // TODO: Find a better selector, maybe a new class like atom-text-editor[medium]
 atom-panel-container atom-text-editor.is-focused {
