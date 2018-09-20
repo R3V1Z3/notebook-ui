@@ -79,4 +79,20 @@
 @tab-height:              30px;
 
 // Font -----------------
+
+//hackish workaround for when Fira Code iScript isn't installed
+@import url('https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css');
+@font-face{
+  font-family: 'Fira Code iScript';
+  src: url('https://cdn.rawgit.com/kencrocken/FiraCodeiScript/master/FiraCodeiScript-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Fira Code iScript';
+  src: url('https://cdn.rawgit.com/kencrocken/FiraCodeiScript/master/FiraCodeiScript-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
 @font-family: Fira Code iScript, system-ui;
