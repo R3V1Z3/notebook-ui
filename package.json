@@ -17,5 +17,8 @@
   "main": "lib/main",
   "engines": {
     "atom": ">0.40.0"
-  }
+  },
+  "files":[
+    "fonts"
+    ]
 }
