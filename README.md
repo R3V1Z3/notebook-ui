@@ -12,7 +12,7 @@ Notebook UI styles most core elements to make Atom feel right at home in the ear
 
 Notebook UI is based entirely on [Atom One Light UI](https://github.com/atom/one-light-ui) which excels at blending UI styles with syntax theme colors, unlike [other themes](https://atom.io/themes/blueprint-ui). Notebook UI's styles don't mesh with as many themes as Atom One but it looks great with probably all light or solarized syntax themes.
 
-It also relies on [Fira Code iScript](https://github.com/kencrocken/FiraCodeiScript) for handwritten font styling.
+It also relies on [Fira Code iScript](https://github.com/kencrocken/FiraCodeiScript) for handwritten font styling. Simply type Fira Code iScript into your editor settings font textbox to turn Fira Code iScript on for your editor.
 
 ## Beautifully archaic
 
