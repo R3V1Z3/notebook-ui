@@ -25,7 +25,11 @@ Settings use rotated hues to help distinguish from other sections.
 Find-in-project also uses different hues.
 ![Notebook UI Find-in-project](screenshots/notebook-ui-find-in-project.png)
 
-KNOWN BUGS
+## Authors and Contributors
+[@Ugotsta](https://github.com/Ugotsta) - Initial work  
+[@UniWrighte](https://github.com/UniWrighte) - Optimization / testing
+
+## Known bugs
 * No START or PLAY button.
 * Makes all text crooked, wat?
 * Playing Nethack in a terminal with this theme is impossibly slow.
